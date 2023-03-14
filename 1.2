@@ -1,0 +1,63 @@
+const App = () => {
+const details = [
+  {name: 'Fundamentals of React', duration: 10},
+  {name: 'Using props to pass data', duration: 7},
+  {name: 'State of a component', duration: 14}
+]
+
+  const Header = (props) => {
+    console.log(props)
+    return (
+      <div>
+        <h1>
+          {props.name}
+        </h1>
+      </div>
+    )
+  }
+
+  const Part = (props) => {
+    console.log(props)
+    return (
+      <div>
+        <p>
+          {props.name} {props.exercise}
+        </p>
+      </div>
+    )
+  }
+
+  const Content = (props) => {
+    console.log(props)
+    return (
+      <div>
+        <Part name={props.part1} exercise={props.part1exercise}></Part>
+        <Part name={props.part2} exercise={props.part2exercise}></Part>
+        <Part name={props.part3} exercise={props.part3exercise}></Part>
+      </div>
+    )
+  }
+
+  const Total = (props) => {
+    console.log(props)
+    return (
+      <div>
+        <p>
+          Number of exercises {props.ex1 + props.ex2 + props.ex3}
+        </p>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <Header name="Half Stack application development"/>
+      <Content part1={details[0].name} part1exercise={details[0].duration}
+      part2={details[1].name} part2exercise={details[1].duration}
+      part3={details[2].name} part3exercise={details[2].duration}/>
+      <Total ex1={10} ex2={7} ex3={14}/>
+    </div>
+  )
+}
+
+export default App
